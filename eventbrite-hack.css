@@ -1,0 +1,11 @@
+#eventbrite-widget-modal-trigger-45328298160 {
+  text-indent: -9999px;
+  line-height: 0;
+}
+
+#eventbrite-widget-modal-trigger-45328298160:after {
+  content: "Get Your Tickets";
+  text-indent: 0;
+  display: block;
+  line-height: 25px;
+}
