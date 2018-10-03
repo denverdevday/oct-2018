@@ -72,23 +72,30 @@
 
     <script type="text/javascript">
         window.sessionize_onload = function () {
-            var th12 = document.querySelector('[data-roomid="1375"]');
-            var parent = th12.parentNode;
-            parent.removeChild(th12);
-
             var alltrs = document.querySelectorAll('tr[class]');
             for (var tr = 0; tr < alltrs.length; ++tr) {
                var td = alltrs[tr].querySelector('td[class="sz-session-empty"]');
-               alltrs[tr].removeChild(td);
+               if (td) {
+                    alltrs[tr].removeChild(td);
+               }
+
+               var tds = alltrs[tr].querySelectorAll('td');
+               if (tds.length > 0 && tds.length < 5 && tds[0].colSpan !== 5) {
+                    alltrs[tr].appendChild(document.createElement('td'));
+               }
             }
 
             var mb12 = document.querySelectorAll('[data-room-name="Maroon Bells 1&2"]');
             for (var i = 0; i < mb12.length; ++i) {
                 var empty = mb12[i].parentNode.querySelectorAll('[class="sz-session-empty"]');
+                var mb12Room = mb12[i].querySelectorAll('[class="sz-session__room"]');
                 mb12[i].colSpan = 5;
                 mb12[i].style.textAlign = 'center';
                 for (var j = 0; j < empty.length; ++j) {
                    mb12[i].parentNode.removeChild(empty[j]);
+                }
+                for (var j = 0; j < mb12Room.length; ++j) {
+                   mb12Room[j].parentNode.removeChild(mb12Room[j]);
                 }
             }
         };
