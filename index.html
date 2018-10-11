@@ -79,31 +79,27 @@
 
     <script type="text/javascript">
         window.sessionize_onload = function () {
-            var alltrs = document.querySelectorAll('tr[class]');
-            for (var tr = 0; tr < alltrs.length; ++tr) {
-               var td = alltrs[tr].querySelector('td[class="sz-session-empty"]');
-               if (td) {
-                    alltrs[tr].removeChild(td);
-               }
-
-               var tds = alltrs[tr].querySelectorAll('td');
-               if (tds.length > 0 && tds.length < 5 && tds[0].colSpan !== 5) {
-                    alltrs[tr].appendChild(document.createElement('td'));
-               }
-            }
-
             var mb12 = document.querySelectorAll('[data-room-name="Maroon Bells 1&2"]');
             for (var i = 0; i < mb12.length; ++i) {
                 var empty = mb12[i].parentNode.querySelectorAll('[class="sz-session-empty"]');
                 var mb12Room = mb12[i].querySelectorAll('[class="sz-session__room"]');
                 mb12[i].colSpan = 5;
                 mb12[i].style.textAlign = 'center';
+                mb12[i].style.borderTop = 'none';
+                mb12[i].style.borderRight = 'none';
+                mb12[i].style.borderLeft = 'none';
+                mb12[i].style.borderBottom = '1px solid #E6E6E6';
                 for (var j = 0; j < empty.length; ++j) {
                    mb12[i].parentNode.removeChild(empty[j]);
                 }
                 for (var j = 0; j < mb12Room.length; ++j) {
                    mb12Room[j].parentNode.removeChild(mb12Room[j]);
                 }
+            }
+
+            var hl = document.querySelectorAll('tr.sz-row-highlight');
+            for (var j = 0; j < hl.length; ++j) {
+                hl[j].className = hl[j].className.replace('sz-row-highlight', '');
             }
         };
     </script>
