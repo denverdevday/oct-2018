@@ -1,9 +1,18 @@
-#eventbrite-widget-modal-trigger-45328298160 {
+#eventbrite-widget-modal-trigger-48969630483 {
   text-indent: -9999px;
   line-height: 0;
+  background-color: #004E85;
+  color: white;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px;
 }
 
-#eventbrite-widget-modal-trigger-45328298160:after {
+#eventbrite-widget-modal-trigger-48969630483:after {
   content: "Get Your Tickets";
   text-indent: 0;
   display: block;
